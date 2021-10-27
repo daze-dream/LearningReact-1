@@ -10,7 +10,7 @@
  # React Basics
  use the npx create-react-app app-name to create your app, and off we go.
 
- All React does is allow us to stylize the app easily, and when it builds, it squashes everything into regular JS and HTML for the browser to understand. The browser doesn't know what React components and syntax is, so that's why we "build" it.
+ All React does is allow us to stylize the app easily. We create a sort of pseudo HTML inside of components, and when it builds, it squashes everything into regular JS and HTML for the browser to understand. The browser doesn't know what React components and syntax is, so that's why we "build" it.
 
  In essence, React gets the 'root' element of our index.html file, and then injects itself into it to render.
 
@@ -42,7 +42,7 @@
 
  This renderrs every name as a h1 in the div, and each entry has a unique key assocaited with it. 
 
- ### Component-ing
+ ## Component-ing
  It's a good idea to keep components separate and in their own folders.
 
  Now we want to display these new names into a grid to more resemble our final app. We create a new component responsible for assembling this called card-list. Components have access to 'props' argument, which is anything we pass into it from the call in the main app
