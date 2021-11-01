@@ -190,3 +190,24 @@ That state in 'app' however has access to both of them. It can pass things down 
 This idea is called "lifting state up."
 
 So the key idea to decide where 'state' should be, is determing what components would care about said state being changed, and then finding where they would commonly "intersect". Often, it's something that only becomes apparent once you begin writing out your code. Architecting is one of the hardest parts of state. 
+
+# Arrow Functions, class functions, and binding scope
+
+If we were to break out the handleChange function to its ownfunction for code reuse, it runs into a problem.
+
+    handleChange(e){
+    this.setState({searchField: e.target.value})}
+    ...
+    //inside the function call
+    handleChange={this.handleChange}
+
+In the browser, 'this' becomes undefined. That's because the class method does not automatically bind 'this' scope. It has to be done in the constructor
+
+    this.handleChange = this.handleChange.bind(this)
+
+But that's an extremely verbose way to do things for every function. Arrow functions automatically bind 'this' lexically (contextually is the more appropriate term), so use that instead.
+
+    handleChange = (e) => {
+    this.setState({searchField: e.target.value})}
+
+and the program still works just fine. 
